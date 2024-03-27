@@ -1,0 +1,161 @@
+[
+    {
+        "img": "./imgs/narutotomo26.jpeg",
+        "nombre": "Naruto Tomo 26",
+        "precio": 6000,
+        "cuotas": "6 cuotas sin interes de $1000",
+        "categoria": "mangas",
+        "id": 1,
+        "stock": 15
+    },
+
+    {
+        "img": "./imgs/jujutsukaisentomo8.jpeg",
+        "nombre": "Jujutsu Kaisen 8",
+        "precio": 6000,
+        "cuotas": "6 cuotas sin interes de $1000",
+        "categoria": "mangas",
+        "id": 2,
+        "stock": 4
+    },
+
+    {
+        "img": "./imgs/onepiecetomo59.jpeg",
+        "nombre": "One Piece Tomo 59",
+        "precio": 8900,
+        "cuotas": "6 cuotas sin interes de $1483.33",
+        "categoria": "mangas",
+        "id": 3,
+        "stock": 9
+    },
+
+    {
+        "img": "./imgs/tomodbs9.jpg",
+        "nombre": "Dragon Ball Super 9",
+        "precio": 8900,
+        "cuotas": "6 cuotas sin interes de $1483.33",
+        "categoria": "mangas",
+        "id": 4,
+        "stock": 50
+    },
+
+    {
+        "img": "./imgs/figurajujutsu.jpg",
+        "nombre": "Jujutsu Banpresto",
+        "precio": 75000,
+        "cuotas": "6 cuotas sin interes de $12500",
+        "categoria": "figuras",
+        "id": 5,
+        "stock": 22
+    },
+
+    {
+        "img": "./imgs/figuranaruto.jpg",
+        "nombre": "Naruto Banpresto",
+        "precio": 36000,
+        "cuotas": "6 cuotas sin interes de $6000",
+        "categoria": "figuras",
+        "id": 6,
+        "stock": 4
+    },
+
+    {
+        "img": "./imgs/figuraonepiece.jpg",
+        "nombre": "Ace Banpresto",
+        "precio": 75000,
+        "cuotas": "6 cuotas sin interes de $12500",
+        "categoria": "figuras",
+        "id": 7,
+        "stock": 2
+    },
+
+    {
+        "img": "./imgs/figuradragonball.jpg",
+        "nombre": "Vegetto Banpresto",
+        "precio": 36000,
+        "cuotas": "6 cuotas sin interes de $6000",
+        "categoria": "figuras",
+        "id": 8,
+        "stock": 7
+    },
+
+    {
+        "img": "./imgs/remeraevangelion.webp",
+        "nombre": "Evangelion Remera",
+        "precio": 8000,
+        "cuotas": "6 cuotas sin interes de $1333,33",
+        "categoria": "remeras",
+        "id": 9,
+        "stock": 13
+    },
+
+    {
+        "img": "./imgs/remerajujutsu.jpg",
+        "nombre": "Jujutsu Remera",
+        "precio": 8000,
+        "cuotas": "6 cuotas sin interes de $1333,33",
+        "categoria": "remeras",
+        "id": 10,
+        "stock": 60
+    },
+
+    {
+        "img": "./imgs/remeraonepiece.jpeg",
+        "nombre": "One Piece Remera",
+        "precio": 8000,
+        "cuotas": "6 cuotas sin interes de $1333,33",
+        "categoria": "remeras",
+        "id": 11,
+        "stock": 5
+    },
+
+    {
+        "img": "./imgs/remeraousama.webp",
+        "nombre": "Bojji Remera",
+        "precio": 8000,
+        "cuotas": "6 cuotas sin interes de $1333,33",
+        "categoria": "remeras",
+        "id": 12,
+        "stock": 44
+    },
+
+    {
+        "img": "./imgs/merchchainsaw.webp",
+        "nombre": "Pochita Chainsaw",
+        "precio": 8500,
+        "cuotas": "6 cuotas sin interes de $1416.66",
+        "categoria": "merch",
+        "id": 13,
+        "stock": 26
+    },
+
+    {
+        "img": "./imgs/merchfullmetal.png",
+        "nombre": "Reloj Fullmetal",
+        "precio": 5000,
+        "cuotas": "6 cuotas sin interes de $833,33",
+        "categoria": "merch",
+        "id": 14,
+        "stock": 3
+    },
+
+    {
+        "img": "./imgs/merchnaruto.webp",
+        "nombre": "Monedero Naruto",
+        "precio": 3000,
+        "cuotas": "6 cuotas sin interes de $500",
+        "categoria": "merch",
+        "id": 15,
+        "stock": 1
+    },
+
+    {
+        "img": "./imgs/merchnaruto2.jpg",
+        "nombre": "Bandana Naruto",
+        "precio": 6000,
+        "cuotas": "6 cuotas sin interes de $1000",
+        "categoria": "merch",
+        "id": 16,
+        "stock": 22
+    }
+]

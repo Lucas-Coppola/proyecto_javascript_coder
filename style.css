@@ -1,0 +1,2871 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Kanit', sans-serif;
+    text-decoration: none;
+}
+
+.secciones {
+    display: block;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+        "gratis gratis gratis"
+        "header  header  header"
+        "portada portada portada"
+        "info  info  info"
+        "footer  footer  footer"
+    ;
+    grid-template-columns: 150px 3fr 0.5fr;
+    grid-template-rows: auto auto auto auto auto;
+}
+
+.enviosGratis {
+    grid-area: gratis;
+    text-align: center;
+    color: white;
+    margin-bottom: -1rem;
+}
+
+.envios {
+    background-color: rgb(216, 3, 3);
+}
+
+header {
+    grid-area: header;
+    background-color: rgb(219, 217, 217);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.carritoContainer {
+    display: flex;
+    justify-content: end;
+    margin-right: -20rem;
+}
+
+.carrito button {
+    color: black;
+    font-size: 30px;
+    background-color: unset;
+    border: unset;
+    position: absolute;
+    bottom: 3rem;
+    transition: 0.5s;
+}
+
+.carrito button:hover {
+    transition: 0.3s;
+    color: rgb(216, 3, 3);
+}
+
+.carritoContainer span {
+    color: black;
+    background-color: unset;
+    border: unset;
+    position: absolute;
+    bottom: 5rem;
+    right: 97px;
+}
+
+.hiddenCart {
+    display: none;
+}
+
+.carritoProductos {
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    top: 12.5rem;
+    left: 50rem;
+    padding: 10px;
+    z-index: 2;
+    max-height: 500px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+.carritoProductos::-webkit-scrollbar {
+    width: 2px;
+}
+
+.carritoProductos::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.carritoProductos::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.carritoProductos button {
+    background-color: unset;
+    border: unset;
+    max-width: 10%;
+}
+
+.elementosCarrito {
+    display: flex;
+    padding: 5px;
+}
+
+.elementosCarrito i {
+    font-size: 2rem;
+    margin-left: 21rem;
+}
+
+.carritoVacio {
+    text-align: center;
+}
+
+.disabled {
+    display: none;
+}
+
+.pContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0rem;
+    margin-bottom: .5rem;
+    margin-right: 1.5rem;
+    border-bottom: #000 solid 1px;
+}
+
+.tablaCarrito {
+    border-bottom: black solid 1px;
+}
+
+.pImagen {
+    margin-left: 3rem;
+}
+
+.pPrecio {
+    margin-right: .8rem;
+}
+
+.pProducto {
+    margin-left: 3rem;
+}
+
+#pProductoCarrito {
+    margin-left: 1rem;
+}
+
+#pImagen {
+    margin-left: 1rem;
+}
+
+.imagenProductos {
+    margin-right: 1.2rem;
+    margin-bottom: 1rem;
+    margin-top: .5rem;
+}
+
+#pCantidad {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    position: relative;
+    left: .4rem;
+    font-size: 1.1rem;
+}
+
+.btnSumarContainer {
+    display: flex;
+    position: relative;
+    top: .3rem;
+}
+
+.btnSumar {
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    bottom: .15rem;
+    left: 1rem;
+    background-color: rgb(216, 3, 3);
+    color: white;
+    padding: 0px 10px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: .5s;
+    margin-left: -1rem;
+}
+
+.btnSumar:hover {
+    background-color: rgb(247, 36, 36);
+    color: #000000;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+.sacarProductos {
+    border-radius: 50px;
+    background-color: rgb(216, 3, 3);
+    padding: 5px 10px;
+    color: white;
+    margin-left: 1rem;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.sacarProductos:hover {
+    background-color: red;
+}
+
+.totalCosto {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#precioTotal {
+    position: relative;
+    top: .03rem;
+    left: .1rem;
+    font-size: 1.6rem;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+
+}
+
+.btnComprarContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.vaciarCarritoBtn {
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(216, 3, 3);
+    padding: 5px;
+    margin-bottom: .8rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    width: 450px;
+    text-align: center;
+}
+
+.vaciarCarritoBtn:hover {
+    background-color: red;
+}
+
+.finalizarCarritoBtn {
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(216, 3, 3);
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    width: 450px;
+    text-align: center;
+    transition: .5s;
+}
+
+.finalizarCarritoBtn:hover {
+    font-size: 1.5rem;
+}
+
+.sacarCarrito:hover {
+    color: rgb(216, 3, 3);
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo p {
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Kanit', sans-serif;
+    font-style: italic;
+    font-size: 3rem;
+}
+
+.logo span {
+    color: rgb(216, 3, 3);
+}
+
+.logoPagina {
+    width: 100px;
+    margin-bottom: .4rem;
+    margin-top: .5rem;
+}
+
+.secciones {
+    display: flex;
+    flex-direction: row;
+}
+
+.secciones a {
+    text-decoration: none;
+}
+
+.secciones li {
+    margin-right: 2rem;
+    list-style-type: none;
+    color: black;
+    font-size: 1.2rem;
+    transition: 0.2s;
+}
+
+.secciones li:hover {
+    transition: 0.2s;
+    font-size: 1.4rem;
+}
+
+.portada {
+    grid-area: portada;
+    background-image: url(./imgs/tienda-fisica.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+}
+
+.portada h1 {
+    color: white;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+    max-width: 55%;
+    font-size: 5.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Kanit', sans-serif;
+    font-style: italic;
+    text-align: center;
+}
+
+main {
+    grid-area: info;
+    color: white;
+    background-color: black;
+    position: relative;
+}
+
+main .tituloProductos {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+main .productosQueHay {
+    display: flex;
+    margin-bottom: 4rem;
+}
+
+.mangasDemostracion {
+    width: 300px;
+    height: 300px;
+    background-image: url(./imgs/mangas-divoscuro.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.6rem;
+    margin-right: 2rem;
+    margin-left: 1.5rem;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+}
+
+.figurasDemostracion {
+    width: 300px;
+    height: 300px;
+    background-image: url(./imgs/figurasoscura.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.6rem;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+    margin-right: 2rem;
+}
+
+.remerasDemostracion {
+    width: 300px;
+    height: 300px;
+    background-image: url(./imgs/remeraoscura.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.6rem;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+    margin-right: 2rem;
+}
+
+.merchandisingDemostracion {
+    width: 300px;
+    height: 300px;
+    background-image: url(./imgs/merchoscuro.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.6rem;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+}
+
+.filtros {
+    margin-left: 1rem;
+}
+
+#ordenarProductos {
+    border-radius: 30px;
+    color: gray;
+    transition: 0.5s;
+    padding: 5px;
+    margin-right: 1rem;
+}
+
+#ordenarProductos:hover {
+    color: black;
+    transition: 0.5s;
+}
+
+#nombreFiltros {
+    border-radius: 30px;
+    padding: 5px;
+    margin-right: 1rem;
+}
+
+#tiposProductosFiltros {
+    border-radius: 30px;
+    padding: 5px;
+    color: gray;
+    transition: 0.5s;
+    margin-right: 1rem;
+}
+
+#tiposProductosFiltros:hover {
+    color: black;
+    transition: 0.5s;
+}
+
+#precioMinimo {
+    border-radius: 30px;
+    padding: 5px;
+    margin-right: 1rem;
+}
+
+#precioMaximo {
+    border-radius: 30px;
+    padding: 5px;
+    margin-right: 1rem;
+}
+
+.limpiarFiltros {
+    background-color: rgb(216, 3, 3);
+    border: unset;
+    color: white;
+    transition: 0.5s;
+    font-size: 1.7rem;
+    padding: 2px;
+    border-radius: 10px;
+    border: white solid 2px;
+    margin-left: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.limpiarFiltros:hover {
+    color: black;
+    transition: 0.5s;
+    font-weight: bold;
+    background-color: white;
+    font-size: 1.6rem;
+    border: rgb(216, 3, 3) solid 2px;
+}
+
+.productosInexistentes {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+    left: 31rem;
+    width: 350px;
+}
+
+.productosSection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 2rem;
+}
+
+.mangaImage {
+    width: 300px;
+    height: 400px;
+}
+
+.mangas {
+    margin-left: 1rem;
+    margin-right: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.productosDetalles {
+    background-color: rgb(216, 3, 3);
+    padding: 10px;
+}
+
+.productosLista {
+    margin-top: 1.5rem;
+}
+
+.productosNombre {
+    font-size: 1.9rem;
+}
+
+.productosPrecio {
+    font-size: 2rem;
+}
+
+.signoPesos {
+    font-size: 2rem;
+}
+
+.agregarCarrito {
+    background-color: white;
+    border-radius: 30px;
+    border: black solid 2px;
+    width: 260px;
+    padding: 10px;
+    margin-left: 1rem;
+    color: red;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.agregarCarrito:hover {
+    color: white;
+    background-color: #000;
+    border: white solid 2px;
+    transition: 0.5s;
+    font-size: 1.2rem;
+}
+
+.nosotros h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+.nosotrosContainer {
+    display: flex;
+    background-color: rgb(219, 217, 217);
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 30px;
+    margin-top: 2rem;
+}
+
+.nosotrosContainer img {
+    width: 45rem;
+    height: 30rem;
+    padding: 10px;
+    border-radius: 40px;
+    margin-left: .5rem;
+}
+
+.nosotrosContainer h3 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.infoNosotros {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoNosotros p {
+    font-size: 1.5rem;
+    max-width: 75%;
+}
+
+.logoEnNosotros {
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    margin-right: 2rem;
+}
+
+.logoEnNosotros p {
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+.nombreLogo {
+    color: rgb(216, 3, 3);
+    font-size: 3rem;
+}
+
+#logoNosotros {
+    width: 7rem;
+    height: 7rem;
+}
+
+.certificadoNosotros {
+    display: flex;
+    background-color: rgb(219, 217, 217);
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 30px;
+    margin-top: 2rem;
+}
+
+.certificadoNosotros h3 {
+    font-size: 3rem;
+    color: #000;
+    font-style: italic;
+    padding: 10px;
+}
+
+.certificadoNosotros p {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    max-width: 75%;
+    color: #000;
+}
+
+.marcasProductosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 20px;
+}
+
+.marcasProductos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 20px;
+    margin-top: 2rem;
+}
+
+.marcasImgs {
+    width: 20rem;
+}
+
+#contactoId {
+    margin-top: 2rem;
+    border-top: rgb(216, 3, 3) solid 2px;
+}
+
+.contactoContainer {
+    margin-left: 1rem;
+}
+
+.contactoContainer h2 {
+    font-size: 5rem;
+    margin-top: 1rem;
+}
+
+.formularioGeneral {
+    position: relative;
+}
+
+.imgLuffy {
+    width: 50rem;
+    height: 50rem;
+    position: absolute;
+    bottom: 19rem;
+    left: 30rem;
+}
+
+.contactoInfo form p {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+}
+
+.contactoInfo input {
+    max-width: 30%;
+    height: 3rem;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 1.7rem;
+}
+
+.contactoInfo textarea {
+    max-width: 60%;
+    border-radius: 20px;
+    height: 20rem;
+    font-size: 1.7rem;
+    padding: 5px;
+    z-index: 1;
+}
+
+.botonesContacto {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.botonesContacto input {
+    width: 11.5rem;
+    border-radius: 30px;
+    background-color: white;
+    color: rgb(216, 3, 3);
+    border: #000;
+    transition: .5s;
+    padding: 0px;
+}
+
+.botonesContacto .enviarForm {
+    border-radius: 30px;
+    border: #000;
+    width: 11.5rem;
+    margin-right: 1rem;
+    background-color: white;
+    color: rgb(216, 3, 3);
+    transition: .5s;
+}
+
+.botonesContacto input:hover,
+.enviarForm:hover {
+    background-color: rgb(216, 3, 3);
+    font-size: 2rem;
+    color: white;
+    transition: .5s;
+    border: white;
+    width: 14rem;
+    border: white solid 2px;
+}
+
+.iconosSubida {
+    position: absolute;
+    position: sticky;
+    display: flex;
+    bottom: 1rem;
+    margin-top: -12rem;
+    margin-bottom: 2rem;
+    margin-left: 80rem;
+    z-index: 1;
+}
+
+.iconosSubida a {
+    color: unset;
+}
+
+.flechaSubida i {
+    font-size: 3.6rem;
+    color: white;
+}
+
+.iconoWhatsapp {
+    background-color: rgb(20, 243, 102);
+    padding: 9px;
+    border-radius: 100px;
+    border: white solid 4px;
+}
+
+.iconoWhatsapp img {
+    width: 2rem;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    width: 100%;
+    padding: 50px 0px;
+    background-color: rgb(219, 217, 217);
+}
+
+.container__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.box__footer {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.navYpagos {
+    display: flex;
+}
+
+.box__footer .imgsPagos {
+    width: 3rem;
+}
+
+.mediosPagoImgs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box__footer .logo img {
+    width: 8rem;
+    margin-bottom: -1rem;
+}
+
+.box__footer p {
+    font-size: 3rem;
+    color: #000;
+    font-style: italic;
+}
+
+.box__footer h2 {
+    margin-bottom: 30px;
+    color: #343434;
+    font-weight: 700;
+}
+
+.box__footer a {
+    margin-top: 10px;
+    color: #7a7a7a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.box__footer a:hover {
+    opacity: 0.8;
+}
+
+.box__copyright {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 0px 40px;
+    margin-bottom: -2rem;
+}
+
+.box__copyright p {
+    margin-top: 20px;
+    color: #7a7a7a;
+}
+
+.box__copyright hr {
+    border: none;
+    height: 1px;
+    background-color: #7a7a7a;
+}
+
+/* Sweet Alert Style*/
+.swal2-confirm {
+    background-color: rgb(216, 3, 3) !important;
+}
+
+/* Nav Scrolled */
+.navFixed {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    box-shadow: none;
+    height: 17vh;
+}
+
+.logoFixed {
+    width: 60px;
+    position: relative;
+    bottom: 1rem;
+}
+
+.logoContainerFixed {
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    top: 1rem !important;
+}
+
+.marketFixed,
+.animeFixed {
+    font-size: 2rem !important;
+}
+
+.carritoFixed {
+    top: 3.5rem;
+}
+
+/* Checkout */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 4;
+}
+
+.compraContainer {
+    background-color: rgb(219, 217, 217);
+    z-index: 4;
+    color: #3a3838;
+    border-radius: 10px;
+    width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 630px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+.compraContainer::-webkit-scrollbar {
+    width: 2px;
+}
+
+.compraContainer::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.compraContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.compraContainer h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-top: -1rem;
+}
+
+.mediosDePago {
+    display: flex;
+    flex-direction: column;
+}
+
+.btnCheckout {
+    border: unset;
+    background-color: unset;
+    font-size: 2rem;
+    position: relative;
+    left: 29rem;
+    margin-bottom: -15rem;
+}
+
+.tituloContainer {
+    border-bottom: gray .5px solid;
+}
+
+.costoEnvio {
+    margin-top: .5rem;
+    margin-left: .5rem;
+}
+
+#codigoPostal {
+    border: unset;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.calcularEnvio {
+    border: unset;
+    padding: 2px;
+    color: white;
+    background-color: rgb(216, 3, 3);
+    padding: 5px;
+    text-align: center;
+    transition: .5s;
+    border-radius: 10px;
+}
+
+.calcularEnvio:hover {
+    background-color: brown;
+}
+
+.envioError {
+    color: rgb(216, 3, 3);
+}
+
+.mediosPago {
+    display: flex;
+    flex-direction: column;
+    margin-left: .5rem;
+}
+
+.inputsTarjeta {
+    display: flex;
+}
+
+.inputsTarjeta p {
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.numTarjeta {
+    border: unset;
+    padding: 1px;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+}
+
+.inputsTarjetasSeleccion {
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjetaTipo {
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+    opacity: .8;
+    border-radius: 10px;
+}
+
+.inputsPago h4 {
+    margin-bottom: -0.05rem;
+}
+
+.nombreTarjeta {
+    border: unset;
+    padding: 2px;
+    border-radius: 10px;
+    width: 480px;
+    margin-bottom: .5rem;
+}
+
+.telTarjeta {
+    border: unset;
+    padding: 2px;
+    border-radius: 10px;
+    width: 480px;
+    margin-bottom: .5rem;
+}
+
+.emailTarjeta {
+    border: unset;
+    padding: 2px;
+    border-radius: 10px;
+    width: 480px;
+    margin-bottom: .5rem;
+}
+
+#btnCompraFinal {
+    margin-top: .5rem;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#btnCompraFinal:hover {
+    font-size: 1.3rem;
+}
+
+.desactivado {
+    background-color: gray;
+}
+
+/* Adaptación notebook Responsive */
+@media screen and (min-width: 1504px) and (max-width: 2756px) {
+    .portada h1 {
+        font-size: 14rem;
+    }
+
+    .carritoVacio {
+        font-size: 3rem;
+    }
+
+    .carritoProductos {
+        left: 50%;
+        top: 90%;
+        width: 1150px;
+        max-height: 900px !important;
+    }
+
+    .tablaProductos {
+        font-size: 4rem;
+    }
+
+    .elementosCarrito h2{
+        font-size: 4.5rem;
+    }
+
+    .sacarCarrito i{
+        font-size: 5rem;
+        left: 10rem;
+        position: relative;
+        left: 370%;
+    }
+
+    #pImagen {
+        width: 300px;
+    }
+
+    #pProductoCarrito {
+        font-size: 3.5rem;
+    }
+
+    #carritoPrecios {
+        font-size: 3.5rem;
+    }
+
+    #pCantidad {
+        font-size: 3.5rem;
+    }
+
+    .btnSumar {
+        font-size: 4rem;
+    }
+
+    .sacarProductos {
+        font-size: 3rem;
+    }
+
+    .totalCosto {
+        font-size: 4rem;
+    }
+
+    #precioTotal {
+        font-size: 4rem;
+    }
+
+    .vaciarCarritoBtn {
+        font-size: 4rem;
+        width: 90%;
+    }
+
+    .finalizarCarritoBtn {
+        font-size: 4rem;
+        width: 90%;
+    }
+
+    .cantidadProductosCarrito {
+        left: 73%;
+    }
+
+    .envios {
+        font-size: 3.5rem;
+    }
+
+    .logo img {
+        width: 250px;
+    }
+
+    .logoFixed {
+        width: 200px !important;
+    }
+
+    .nombreLogoP {
+        font-size: 8rem !important;
+    }
+
+    .nombreLogo {
+        font-size: 8rem !important;
+    }
+
+    .bi-cart-fill {
+        font-size: 5rem !important;
+    }
+
+    .cantidadProductosCarrito {
+        font-size: 4rem !important;
+        left: 88.5%;
+    }
+    
+    .secciones li {
+        font-size: 3.5rem;
+        margin-right: 4rem;
+    }
+
+    .tituloProductos {
+        font-size: 6rem !important;
+    }
+
+    .productosQueHay {
+        justify-content: center;
+    }
+
+    .mangasDemostracion{
+        width: 600px;
+        height: 600px;
+        font-size: 6rem !important;
+    }
+
+    .figurasDemostracion {
+        width: 600px;
+        height: 600px;
+        font-size: 6rem !important;
+    }
+
+    .remerasDemostracion {
+        width: 600px;
+        height: 600px;
+        font-size: 6rem !important;
+    }
+
+    .merchandisingDemostracion {
+        width: 600px;
+        height: 600px;
+        font-size: 6rem !important;
+    }
+
+    .iconosSubida {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+    .iconosSubida i {
+        font-size: 10rem;
+    }
+
+    .iconoWhatsapp img {
+        padding: 5px;
+        width: 8rem;
+    }
+
+    .compraContainer {
+        width: 50%;
+        max-height: 100%;
+    }
+    
+    .compraContainer h2 {
+        font-size: 5rem;
+    }
+
+    .compraContainer .btnCheckout {
+        left: 70%;
+    }
+
+    .costoEnvio h3 {
+        font-size: 4rem;
+    }
+
+    .mediosDePago input {
+        font-size: 4rem;
+    }
+
+    .calcularEnvio {
+        font-size: 3.5rem;
+        margin-left: 1rem;
+    }
+
+    .costoActual {
+        font-size: 3rem;
+    }
+
+    .envioGratuito {
+        font-size: 3rem;
+    }
+
+    .totalCostoEnvio {
+        font-size: 3rem;
+    }
+
+    .mediosPago h3 {
+        font-size: 4rem;
+    }
+
+    .mediosPago select {
+        font-size: 3rem;
+    }
+
+    .mediosPago option {
+        font-size: 1rem;
+    }
+
+    .inputsPago h4 {
+        font-size: 3.5rem;
+    }
+
+    .inputsPago input {
+        width: 90%;
+        height: auto;
+    }
+
+    #btnCompraFinal {
+        margin-left: 3rem;
+    }
+
+    .filtros input{
+        font-size: 2.65rem;
+    }
+
+    .filtros select {
+        font-size: 2.65rem;
+    }
+
+    .filtros option {
+        font-size: 1rem !important;
+    }
+
+    .limpiarFiltros {
+        margin-top: 1rem;
+        font-size: 3.5rem !important;
+    }
+
+    .mangaImage {
+        width: 100%;
+        height: 85%;
+    }
+
+    .productosDetalles {
+        width: 100.5%;
+    }
+
+    .productosNombre {
+        font-size: 4rem;
+    }
+
+    .signoPesos {
+        font-size: 4rem;
+    }
+
+    .productosPrecio {
+        font-size: 4rem;
+    }
+
+    .cuotasSinInteres {
+        font-size: 2.5rem;
+    }
+
+    .agregarCarrito {
+        width: 95%;
+        font-size: 2.5rem;
+    }
+
+    .mangas {
+        margin-bottom: 16rem;
+    }
+
+    .productosInexistentes {
+        font-size: 3.5rem;
+        left: 160%;
+    }
+
+    .nosotros h2 {
+        font-size: 6rem !important;
+    }
+    
+    #logoNosotros {
+        width: 13rem;
+        height: auto;
+        margin-right: -3rem;
+    }
+
+    .logoEnNosotros p {
+        font-size: 6rem;
+    }
+
+    .logoEnNosotros p span {
+        font-size: 6rem !important;
+    }
+
+    .textoNosotros {
+        font-size: 3.5rem !important;
+    }
+
+    .nosotrosImage img {
+        margin-right: -5rem;
+        width: 85rem;
+        height: 70rem;
+    }
+
+    .certificadoNosotros h3 {
+        font-size: 6rem;
+    }
+
+    .certificadoNosotros p {
+        font-size: 4rem;
+    }
+
+    .marcasImgs {
+        width: 500px;
+    }
+
+    .marcasProductos {
+        margin-top: 10%;
+    }
+
+    .contactoContainer h2 {
+        font-size: 20rem;
+    }
+
+    .contactoInfo label{
+        font-size: 6rem;
+    }
+
+    .contactoInfo input{
+        height: auto;
+        font-size: 5rem;
+        max-width: 45%;
+    }
+
+    .contactoInfo textarea{
+        height: 35rem !important;
+        font-size: 5rem;
+        max-width: 90%;
+    }
+
+    .enviarForm {
+        font-size: 5rem;
+        width: 20% !important;
+    }
+
+    .limpiarFiltrosContacto {
+        font-size: 5rem;
+        width: 20% !important;
+    }
+
+    .imgLuffy {
+        width: 105rem;
+        height: auto;
+        left: 34%;
+        bottom: 26%;
+    }
+
+    #logoFooter img {
+        width: 20rem;
+    }
+
+    .terms p {
+        font-size: 8rem;
+    }
+
+    .box__footer {
+        font-size: 3rem;
+    }
+
+    .box__footer h2{
+        font-size: 4rem;
+    }
+
+    .mediosPagoImgs img {
+        width: 150px !important;
+    }
+
+    .box__copyright {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 1504px) and (max-width: 2559px) {
+    .portada h1 {
+        font-size: 14rem;
+    }
+
+    .carritoVacio {
+        font-size: 3rem;
+    }
+
+    .carritoProductos {
+        left: 40%;
+        top: 90%;
+        width: 1150px;
+        max-height: 900px !important;
+    }
+
+    .tablaProductos {
+        font-size: 4rem;
+    }
+
+    .elementosCarrito h2{
+        font-size: 4.5rem;
+    }
+
+    .sacarCarrito i{
+        font-size: 5rem;
+        left: 10rem;
+        position: relative;
+        left: 370%;
+    }
+
+    #pImagen {
+        width: 300px;
+    }
+
+    #pProductoCarrito {
+        font-size: 3.5rem;
+    }
+
+    #carritoPrecios {
+        font-size: 3.5rem;
+    }
+
+    #pCantidad {
+        font-size: 3.5rem;
+    }
+
+    .btnSumar {
+        font-size: 4rem;
+    }
+
+    .sacarProductos {
+        font-size: 3rem;
+    }
+
+    .totalCosto {
+        font-size: 4rem;
+    }
+
+    #precioTotal {
+        font-size: 4rem;
+    }
+
+    .vaciarCarritoBtn {
+        font-size: 4rem;
+        width: 90%;
+    }
+
+    .finalizarCarritoBtn {
+        font-size: 4rem;
+        width: 90%;
+    }
+
+    .cantidadProductosCarrito {
+        left: 73%;
+    }
+
+    .envios {
+        font-size: 3.5rem;
+    }
+
+    .logo img {
+        width: 250px;
+    }
+
+    .logoFixed {
+        width: 200px !important;
+    }
+
+    .nombreLogoP {
+        font-size: 8rem !important;
+    }
+
+    .nombreLogo {
+        font-size: 8rem !important;
+    }
+
+    .bi-cart-fill {
+        font-size: 5rem !important;
+    }
+
+    .cantidadProductosCarrito {
+        font-size: 4rem !important;
+        left: 88.5%;
+    }
+    
+    .secciones li {
+        font-size: 3.5rem;
+        margin-right: 4rem;
+    }
+
+    .tituloProductos {
+        font-size: 6rem !important;
+    }
+
+    .productosQueHay {
+        justify-content: center;
+    }
+
+    .mangasDemostracion{
+        width: 600px;
+        height: 600px;
+        font-size: 6rem !important;
+    }
+
+    .figurasDemostracion {
+        width: 600px;
+        height: 600px;
+        font-size: 6rem !important;
+    }
+
+    .remerasDemostracion {
+        width: 600px;
+        height: 600px;
+        font-size: 6rem !important;
+    }
+
+    .merchandisingDemostracion {
+        width: 600px;
+        height: 600px;
+        font-size: 6rem !important;
+    }
+
+    .iconosSubida {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+    .iconosSubida i {
+        font-size: 10rem;
+    }
+
+    .iconoWhatsapp img {
+        padding: 5px;
+        width: 8rem;
+    }
+
+    .compraContainer {
+        width: 50%;
+        max-height: 100%;
+    }
+    
+    .compraContainer h2 {
+        font-size: 5rem;
+    }
+
+    .compraContainer .btnCheckout {
+        left: 70%;
+    }
+
+    .costoEnvio h3 {
+        font-size: 4rem;
+    }
+
+    .mediosDePago input {
+        font-size: 4rem;
+    }
+
+    .calcularEnvio {
+        font-size: 3.5rem;
+        margin-left: 1rem;
+    }
+
+    .costoActual {
+        font-size: 3rem;
+    }
+
+    .envioGratuito {
+        font-size: 3rem;
+    }
+
+    .totalCostoEnvio {
+        font-size: 3rem;
+    }
+
+    .mediosPago h3 {
+        font-size: 4rem;
+    }
+
+    .mediosPago select {
+        font-size: 3rem;
+    }
+
+    .mediosPago option {
+        font-size: 1rem;
+    }
+
+    .inputsPago h4 {
+        font-size: 3.5rem;
+    }
+
+    .inputsPago input {
+        width: 90%;
+        height: auto;
+    }
+
+    #btnCompraFinal {
+        margin-left: 3rem;
+    }
+
+    .filtros input{
+        font-size: 2.65rem;
+    }
+
+    .filtros select {
+        font-size: 2.65rem;
+    }
+
+    .filtros option {
+        font-size: 1rem !important;
+    }
+
+    .limpiarFiltros {
+        margin-top: 1rem;
+        font-size: 3.5rem !important;
+    }
+
+    .mangaImage {
+        width: 100%;
+        height: 85%;
+    }
+
+    .productosDetalles {
+        width: 100.5%;
+    }
+
+    .productosNombre {
+        font-size: 4rem;
+    }
+
+    .signoPesos {
+        font-size: 4rem;
+    }
+
+    .productosPrecio {
+        font-size: 4rem;
+    }
+
+    .cuotasSinInteres {
+        font-size: 2.5rem;
+    }
+
+    .agregarCarrito {
+        width: 95%;
+        font-size: 2.5rem;
+    }
+
+    .mangas {
+        margin-bottom: 16rem;
+    }
+
+    .productosInexistentes {
+        font-size: 3.5rem;
+        left: 160%;
+    }
+
+    .nosotros h2 {
+        font-size: 6rem !important;
+    }
+    
+    #logoNosotros {
+        width: 13rem;
+        height: auto;
+        margin-right: -3rem;
+    }
+
+    .logoEnNosotros p {
+        font-size: 6rem;
+    }
+
+    .logoEnNosotros p span {
+        font-size: 6rem !important;
+    }
+
+    .textoNosotros {
+        font-size: 3.5rem !important;
+    }
+
+    .nosotrosImage img {
+        margin-right: -5rem;
+        width: 85rem;
+        height: 70rem;
+    }
+
+    .certificadoNosotros h3 {
+        font-size: 6rem;
+    }
+
+    .certificadoNosotros p {
+        font-size: 4rem;
+    }
+
+    .marcasImgs {
+        width: 500px;
+    }
+
+    .marcasProductos {
+        margin-top: 10%;
+    }
+
+    .contactoContainer h2 {
+        font-size: 20rem;
+    }
+
+    .contactoInfo label{
+        font-size: 6rem;
+    }
+
+    .contactoInfo input{
+        height: auto;
+        font-size: 5rem;
+        max-width: 45%;
+    }
+
+    .contactoInfo textarea{
+        height: 35rem !important;
+        font-size: 5rem;
+        max-width: 90%;
+    }
+
+    .enviarForm {
+        font-size: 5rem;
+        width: 20% !important;
+    }
+
+    .limpiarFiltrosContacto {
+        font-size: 5rem;
+        width: 20% !important;
+    }
+
+    .imgLuffy {
+        width: 70rem;
+        height: auto;
+        left: 38%;
+        bottom: 30%;
+    }
+
+    #logoFooter img {
+        width: 20rem;
+    }
+
+    .terms p {
+        font-size: 8rem;
+    }
+
+    .box__footer {
+        font-size: 3rem;
+    }
+
+    .box__footer h2{
+        font-size: 4rem;
+    }
+
+    .mediosPagoImgs img {
+        width: 150px !important;
+    }
+
+    .box__copyright {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 1367px) and (max-width: 1503px) {
+    .secciones li{
+        font-size: 2rem;
+    }
+
+    .carritoFixed {
+        top: 70%;
+        left: 50%;
+    }
+
+    .carritoProductos {
+        left: 55%;
+        top: 84%;
+    }
+
+    .carritoVacio {
+        font-size: 1.5rem;
+    }
+
+    .cantidadProductosCarrito {
+        left: 95%;
+    }
+
+    .tablaProductos {
+        font-size: 1.5rem;
+    }
+
+    .elementosCarrito h2{
+        font-size: 3rem;
+    }
+
+    .sacarCarrito i{
+        font-size: 3rem;
+        left: 10rem;
+        position: relative;
+        left: 100%;
+    }
+
+    #pImagen {
+        width: 170px;
+    }
+
+    #pProductoCarrito {
+        font-size: 1.5rem;
+    }
+
+    #carritoPrecios {
+        font-size: 1.5rem;
+    }
+
+    #pCantidad {
+        font-size: 1.5rem;
+    }
+
+    .btnSumar {
+        font-size: 2rem;
+    }
+
+    .sacarProductos {
+        font-size: 1.6rem;
+    }
+
+    .totalCosto {
+        font-size: 2rem;
+    }
+
+    #precioTotal {
+        font-size: 2rem;
+    }
+
+    .vaciarCarritoBtn {
+        font-size: 2rem;
+        width: 85%;
+    }
+
+    .finalizarCarritoBtn {
+        font-size: 2rem;
+        width: 85%;
+    }
+
+    .mangaImage {
+        width: 90%;
+    }
+
+    .productosDetalles {
+        width: 90%;
+    }
+
+    .productosQueHay {
+        justify-content: center;
+    }
+
+    .portada h1 {
+        font-size: 7.5rem;
+    }
+
+    .compraContainer {
+        height: 90%;
+        font-size: 2rem;
+        width: 50%;
+    }
+
+    .btnCheckout {
+        left: 90%;
+        font-size: 3rem;
+    }
+
+    .tituloContainer h2{
+        font-size: 3rem;
+    }
+
+    .inputsPago input{
+        width: 95%;
+    }
+
+    #btnCompraFinal {
+        width: 90%;
+        font-size: 2rem !important;
+    }
+
+    .iconosSubida {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+@media screen and (min-width: 1333px) and (max-width: 1365px) {
+    .bi-cart-fill {
+        left: 90%;
+    }
+
+    .secciones li {
+        font-size: 2rem;
+    }
+
+    .tablaProductos {
+        font-size: 1.5rem;
+    }
+
+    .elementosCarrito h2{
+        font-size: 3rem;
+    }
+
+    .sacarCarrito i{
+        font-size: 3rem;
+        left: 10rem;
+        position: relative;
+        left: 100%;
+    }
+
+    #pImagen {
+        width: 170px;
+    }
+
+    #pProductoCarrito {
+        font-size: 1.5rem;
+    }
+
+    #carritoPrecios {
+        font-size: 1.5rem;
+    }
+
+    #pCantidad {
+        font-size: 1.5rem;
+    }
+
+    .btnSumar {
+        font-size: 2rem;
+    }
+
+    .sacarProductos {
+        font-size: 1.6rem;
+    }
+
+    .totalCosto {
+        font-size: 2rem;
+    }
+
+    #precioTotal {
+        font-size: 2rem;
+    }
+
+    .vaciarCarritoBtn {
+        font-size: 2rem;
+        width: 85%;
+    }
+
+    .finalizarCarritoBtn {
+        font-size: 2rem;
+        width: 85%;
+    }
+
+    .carritoProductos {
+        top: 85%;
+        left: 45%;
+    }
+
+    .carritoFixed {
+        top: 70%;
+        left: 45%;
+    }
+
+    .cantidadProductosCarrito {
+        left: 90%;
+    }
+
+    .mangaImage {
+        width: 90%;
+    }
+
+    .productosDetalles {
+        width: 90%;
+    }
+
+    .productosQueHay {
+        justify-content: center;
+    }
+
+    .portada h1 {
+        font-size: 7.5rem;
+    }
+
+    .compraContainer {
+        height: 90%;
+        font-size: 2rem;
+        width: 50%;
+    }
+
+    .btnCheckout {
+        left: 90%;
+        font-size: 3rem;
+    }
+
+    .tituloContainer h2{
+        font-size: 3rem;
+    }
+
+    .inputsPago input{
+        width: 95%;
+    }
+
+    #btnCompraFinal {
+        width: 90%;
+        font-size: 2rem !important;
+    }
+}
+
+/* Adaptación Tablet Responsive */
+@media screen and (max-width: 1332px) {
+    .carritoProductos {
+        left: 30%;
+        top: 10.5rem;
+        height: auto;
+    }
+
+    .secciones {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        margin: 6px auto;
+    }
+
+    .secciones {
+        display: none;
+        transition: all 0.3s ease;
+    }
+
+    .secciones.show {
+        display: block;
+        text-align: center;
+    }
+
+    .navContainer.navFixed .secciones {
+        position: sticky;
+        top: 0;
+        background-color: rgb(219, 217, 217);
+        z-index: 1000;
+    }
+
+    .bi-cart-fill {
+        right: 10%;
+    }
+
+    .cantidadProductosCarrito {
+        left: 90%;
+    }
+
+    .position {
+        position: relative;
+        top: 14rem;
+        right: 12rem;
+    }
+
+    .carritoIconFixed {
+        position: relative;
+        bottom: 7rem;
+        right: 2rem;
+    }
+
+    .carritoProductos {
+        left: 55%;
+    }
+
+    .carritoFixed {
+        top: -10rem;
+        left: 6rem;
+    }
+
+    .portada h1 {
+        font-size: 5.2rem;
+    }
+
+    main .productosQueHay {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 4rem;
+        margin-left: .5rem;
+    }
+
+    .mangasDemostracion {
+        width: 250px;
+        height: 250px;
+    }
+
+    .figurasDemostracion {
+        width: 250px;
+        height: 250px;
+    }
+
+    .remerasDemostracion {
+        width: 250px;
+        height: 250px;
+        margin-top: 1rem;
+        margin-left: 1.4rem;
+    }
+
+    .merchandisingDemostracion {
+        width: 250px;
+        height: 250px;
+        margin-top: 1rem;
+    }
+
+    .filtros form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #ordenarProductos {
+        margin-bottom: .5rem;
+    }
+
+    #nombreFiltros {
+        margin-bottom: .5rem;
+    }
+
+    #tiposProductosFiltros {
+        margin-bottom: .5rem;
+    }
+
+    #precioMinimo {
+        margin-bottom: .5rem;
+    }
+
+    #precioMaximo {
+        margin-bottom: .5rem;
+    }
+
+    .limpiarFiltros {
+        width: 20rem;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    .productosSection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .productosInexistentes {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -150%);
+    }
+
+    .mangaImage {
+        width: 270px;
+        height: 400px;
+    }
+
+    .mangas {
+        margin-left: 1rem;
+        margin-right: 1.2rem;
+    }
+
+    .productosDetalles {
+        background-color: rgb(216, 3, 3);
+        padding: 10px;
+        width: 270px;
+    }
+
+    .agregarCarrito {
+        margin-left: -.3rem;
+    }
+
+    .nosotros h2 {
+        margin-bottom: -1rem;
+    }
+
+    .nosotrosContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nosotrosImage img {
+        width: 550px;
+        height: 400px;
+    }
+
+    .certificadoNosotros {
+        flex-direction: column;
+    }
+
+    .marcasProductos img {
+        width: 200px;
+        margin-right: 1rem;
+    }
+
+    .contactoContainer h2 {
+        position: relative;
+        z-index: 2;
+    }
+
+    .imgLuffy {
+        left: 15rem;
+        width: 340px;
+        height: 650px;
+        bottom: 25rem;
+    }
+
+    .iconosSubida {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+    .contactoInfo input {
+        max-width: 50%;
+        z-index: 1;
+        font-size: 1.3rem;
+    }
+
+    .contactoInfo textarea {
+        max-width: 80%;
+        font-size: 1.3rem;
+    }
+
+    .botonesContacto {
+        margin-bottom: 2rem;
+    }
+
+    .box__footer .logo,
+    .terms {
+        position: relative;
+        left: 50%;
+        transform: translate(-25%, -50%);
+    }
+
+    .box__footer {
+        margin-bottom: -5rem;
+    }
+
+    .container__footer iframe {
+        width: 550px;
+        margin-top: 5rem;
+        margin-left: 1.5rem;
+    }
+
+    .compraContainer {
+        height: 500px;
+    }
+}
+
+@media screen and (max-width: 827px) {
+    .portada h1 {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .secciones {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        margin: 6px auto;
+    }
+
+    .secciones {
+        display: none;
+        transition: all 0.3s ease;
+    }
+
+    .secciones.show {
+        display: block;
+        text-align: center;
+    }
+
+    .navContainer.navFixed .secciones {
+        position: sticky;
+        top: 0;
+        background-color: rgb(219, 217, 217);
+        ;
+        z-index: 1000;
+    }
+
+    .bi-cart-fill {
+        right: 10%;
+    }
+
+    .cantidadProductosCarrito {
+        left: 90%;
+    }
+
+    .carritoProductos {
+        left: 12%;
+        top: 10.5rem;
+        height: auto;
+    }
+
+    .position {
+        position: relative;
+        top: 14rem;
+        right: 12rem;
+    }
+
+    .carritoIconFixed {
+        position: relative;
+        bottom: 7rem;
+        right: 2rem;
+    }
+
+    .carritoFixed {
+        top: -10rem;
+        left: 7rem;
+    }
+
+    .portada h1 {
+        font-size: 3.481rem;
+    }
+
+    main .productosQueHay {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 4rem;
+        margin-left: .5rem;
+    }
+
+    .mangasDemostracion {
+        width: 250px;
+        height: 250px;
+    }
+
+    .figurasDemostracion {
+        width: 250px;
+        height: 250px;
+    }
+
+    .remerasDemostracion {
+        width: 250px;
+        height: 250px;
+        margin-top: 1rem;
+        margin-left: 1.4rem;
+    }
+
+    .merchandisingDemostracion {
+        width: 250px;
+        height: 250px;
+        margin-top: 1rem;
+    }
+
+    .filtros form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #ordenarProductos {
+        margin-bottom: .5rem;
+    }
+
+    #nombreFiltros {
+        margin-bottom: .5rem;
+    }
+
+    #tiposProductosFiltros {
+        margin-bottom: .5rem;
+    }
+
+    #precioMinimo {
+        margin-bottom: .5rem;
+    }
+
+    #precioMaximo {
+        margin-bottom: .5rem;
+    }
+
+    .limpiarFiltros {
+        width: 20rem;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    .productosSection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .productosInexistentes {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -150%);
+    }
+
+    .mangaImage {
+        width: 270px;
+        height: 400px;
+    }
+
+    .mangas {
+        margin-left: 1rem;
+        margin-right: 1.2rem;
+    }
+
+    .productosDetalles {
+        background-color: rgb(216, 3, 3);
+        padding: 10px;
+        width: 270px;
+    }
+
+    .agregarCarrito {
+        margin-left: -.3rem;
+    }
+
+    .nosotros h2 {
+        margin-bottom: -1rem;
+    }
+
+    .nosotrosContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nosotrosImage img {
+        width: 550px;
+        height: 400px;
+    }
+
+    .certificadoNosotros {
+        flex-direction: column;
+    }
+
+    .marcasProductos img {
+        width: 200px;
+        margin-right: 1rem;
+    }
+
+    .contactoContainer h2 {
+        position: relative;
+        z-index: 2;
+    }
+
+    .imgLuffy {
+        left: 15rem;
+        width: 340px;
+        height: 650px;
+        bottom: 25rem;
+    }
+
+    .iconosSubida {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+    .contactoInfo input {
+        max-width: 50%;
+        z-index: 1;
+        font-size: 1.3rem;
+    }
+
+    .contactoInfo textarea {
+        max-width: 80%;
+        font-size: 1.3rem;
+    }
+
+    .botonesContacto {
+        margin-bottom: 2rem;
+    }
+
+    .box__footer .logo,
+    .terms {
+        position: relative;
+        left: 50%;
+        transform: translate(-25%, -50%);
+    }
+
+    .box__footer {
+        margin-bottom: -5rem;
+    }
+
+    .container__footer iframe {
+        width: 550px;
+        margin-top: 5rem;
+        margin-left: 1.5rem;
+    }
+}
+
+/* Adaptación Mobile Responsive */
+@media screen and (max-width: 593px) {
+    .secciones {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        margin: 6px auto;
+    }
+
+    .secciones {
+        display: none;
+    }
+
+    .secciones.show {
+        display: block;
+        text-align: center;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .carritoContainer {
+        position: relative;
+        left: -20rem;
+        top: 17rem !important;
+    }
+
+    .carritoProductos {
+        left: 4rem;
+        top: 16.5rem;
+        height: 100vh;
+        width: 300px;
+        position: fixed;
+    }
+
+    .carritoIconFixed {
+        position: relative;
+        bottom: 10rem;
+        right: 2rem;
+    }
+
+    .position {
+        position: relative;
+        left: -18rem;
+        top: 19rem !important;
+        z-index: 1001;
+    }
+
+    .carritoFixed {
+        top: 6rem;
+        left: 4rem;
+        width: 300px;
+        height: 70vh;
+        position: fixed;
+    }
+
+    .portada h1 {
+        font-size: 3.5rem;
+        max-width: 500px;
+    }
+
+    main .productosQueHay {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mangasDemostracion {
+        width: 250px;
+        height: 250px;
+    }
+
+    .figurasDemostracion {
+        margin-top: 1rem;
+        width: 250px;
+        height: 250px;
+        margin-left: 15px;
+    }
+
+    .remerasDemostracion {
+        width: 250px;
+        height: 250px;
+        margin-top: 1rem;
+    }
+
+    .merchandisingDemostracion {
+        width: 250px;
+        height: 250px;
+        margin-top: 1rem;
+        margin-right: 10px;
+    }
+
+    .limpiarFiltros {
+        width: 14rem;
+        left: 43%;
+    }
+
+    .productosSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .productosInexistentes {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -150%);
+        max-width: 300px;
+        margin-top: 65px;
+    }
+
+    .nosotrosContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nosotrosImage img {
+        width: 270px;
+        height: 220px;
+        margin-left: .3rem;
+    }
+
+    .logoEnNosotros {
+        flex-direction: column;
+        margin-left: 20px;
+    }
+
+    #logoNosotros {
+        margin-bottom: -2rem;
+    }
+
+    .textoNosotros {
+        font-size: 1.5rem !important;
+        max-width: 500px !important;
+        text-align: center;
+    }
+
+    .certificadoNosotros {
+        flex-direction: column;
+    }
+
+    .certificadoNosotros h3 {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    .certificadoNosotros p {
+        text-align: center;
+        font-size: 1.5rem;
+        max-width: 500px !important;
+    }
+
+    .marcasProductos img {
+        width: 110px;
+        margin-left: 2rem;
+        margin-top: -2rem;
+    }
+
+    .contactoContainer h2 {
+        position: relative;
+        z-index: 2;
+        font-size: 3rem;
+    }
+
+    .imgLuffy {
+        left: 6rem;
+        width: 200px;
+        height: 400px;
+        bottom: 10rem;
+    }
+
+    .iconosSubida {
+        margin-right: 1.2rem;
+    }
+
+    .contactoInfo input {
+        max-width: 50%;
+        z-index: 1;
+        font-size: 1.3rem;
+        height: 1rem;
+    }
+
+    .limpiarFiltrosContacto {
+        height: auto !important;
+        width: 100px !important;
+    }
+
+    .enviarForm {
+        width: 100px !important;
+    }
+
+    .contactoInfo label {
+        font-size: 1.5rem;
+    }
+
+    .contactoInfo textarea {
+        max-width: 80%;
+        font-size: 1.3rem;
+        height: 5rem;
+    }
+
+    .box__footer .logo,
+    .terms {
+        position: relative;
+        left: 50%;
+        transform: translate(-45%, -50%);
+        text-align: center;
+    }
+
+    .box__footer h2 {
+        margin-bottom: -.5rem;
+    }
+
+    .pagosTitle {
+        margin-top: 1rem;
+        margin-bottom: 1rem !important;
+    }
+
+    .mediosPagoImgs {
+        margin-bottom: 1rem;
+    }
+
+    #contenedorLogoFooter {
+        margin-bottom: -8rem;
+    }
+
+    #logoFooter {
+        margin-top: -2rem;
+        margin-bottom: 3rem;
+    }
+
+    #logoFooter img {
+        width: 100px;
+    }
+
+    .navYpagos {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container__footer iframe {
+        width: 270px;
+        height: 240px;
+        margin-top: 5rem;
+        margin-left: 1.5rem;
+    }
+
+    .compraContainer {
+        height: 500px;
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 344px) {
+    .carritoContainer {
+        position: relative;
+        left: -20rem;
+        top: 21rem !important;
+    }
+
+    .carritoProductos {
+        top: 21rem;
+        left: 0rem;
+    }
+
+    .position {
+        position: relative;
+        left: -19.2rem;
+        top: 19rem !important;
+        z-index: 1001;
+    }
+    
+    .carritoFixed {
+        top: 6rem;
+        left: 1rem;
+    }
+
+    .compraContainer {
+        height: 500px;
+        width: 300px;
+    }
+}

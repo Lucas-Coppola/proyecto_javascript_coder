@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Market | Comprá lo mejor de tu anime o manga favorito</title>
+
+    <link rel="shortcut icon" href="./imgs/logo-svg.png" />
+
+    <!-- Link Bootsrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit&display=swap" rel="stylesheet">
+
+    <!-- Link CSS Toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="enviosGratis">
+        <div class="envios">
+            <p>ENVÍOS GRATIS CON COMPRAS IGUALES O SUPERIORES A $15.000</p>
+        </div>
+    </div>
+
+    <header class="navContainer navFixed">
+        <nav>
+            <div class="carritoContainer position">
+                <div class="carritoSpan">
+                    <a class="carrito" href=""><button class="bi bi-cart-fill"></button></a>
+                    <span class="cantidadProductosCarrito">0</span>
+                </div>
+                <div class="carritoProductos hiddenCart">
+                    <div class="elementosCarrito">
+                        <h2> Mi carrito </h2>
+                        <button class="sacarCarrito">
+                            <i class="bi bi-x"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <table id="productosSeleccionados">
+                            <p class="carritoVacio disabled">
+                                Tu carrito está vacío.
+                            </p>
+                            <div class="tablaProductos disabled">
+                                <div class="pContainer">
+                                    <p class="pImagen">Imagen</p>
+                                    <p class="pProducto">Producto
+                                    <p>
+                                    <p class="pPrecio">Precio</p>
+                                    <p>Cantidad
+                                    <p>
+                                </div>
+                                <tbody></tbody>
+
+                            </div>
+                        </table>
+                        <p class="totalCosto">Subtotal: $<span id="precioTotal">0</span></p>
+                    </div>
+                    <div class="btnContainer">
+                        <a class="vaciarCarritoBtn disabled">
+                            Vaciar Carrito <i class="bi bi-trash3"></i>
+                        </a>
+                    </div>
+                    <div class="btnComprarContainer">
+                        <a class="finalizarCarritoBtn disabled">
+                            Finalizar Compra <i class="bi bi-bag"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="logo">
+                <img class="logoPagina" src="./imgs/logo-svg.png" alt="Logo Página">
+                <p class="nombreLogoP"><span class="nombreLogo">ANIME</span> MARKET</p>
+            </div>
+
+            <div class="menu-toggle">
+                <div class="hamburger"></div>
+            </div>
+
+            <ul class="secciones">
+                <a href="#">
+                    <li>Inicio</li>
+                </a>
+                <a href="#productosId">
+                    <li>Productos</li>
+                </a>
+                <a href="#nosotrosId">
+                    <li>Nosotros</li>
+                </a>
+                <a href="#contactoId">
+                    <li>Contacto</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="portada">
+        <h1>LA TIENDA DE MANGA Y ANIME MÁS GRANDE DE ARGENTINA</h1>
+    </div>
+
+    <main>
+        <!-- Pop up checkout -->
+        <div class="overlay disabled">
+            <div class="compraContainer">
+                <div class="tituloContainer">
+                    <button class="btnCheckout sacarCarrito">
+                        <i class="bi bi-x"></i>
+                    </button>
+                    <h2> CHECKOUT </h2>
+                </div>
+
+                <div class="mediosDePago">
+                    <div class="costoEnvio">
+                        <h3>Envío</h3>
+                        <input type="text" maxlength="4" id="codigoPostal" placeholder="Código Postal">
+                        <button class="calcularEnvio"> Calcular envío </button>
+                        <p class="costoActual"><i class="bi bi-truck"></i> Costo del envío: $<span
+                                class="precioEnvio">0</span></p>
+                        <p class="envioGratuito disabled"> Envío gratuito debido a compra igual o superior a $15000!</p>
+                        <p class="envioError disabled">Por favor, ingrese un código postal válido (1000 a 2000), sólo
+                            envíos a Buenos Aires y C.A.B.A.</p>
+                        <p class="totalCostoEnvio">Total: $<span id="precioTotalEnvio">0</span></p>
+                    </div>
+
+                    <div class="mediosPago">
+                        <form action="">
+                            <h3>Medios de Pago</h3>
+                            <div class="inputsTarjetasSeleccion">
+                                <select name="Seleccione tarjeta" class="tarjetaTipo">
+                                    <option value="debito"> Débito </option>
+                                    <option value="credito"> Crédito </option>
+                                </select>
+                                <select name="Seleccione tipo de tarjeta" class="tarjetaTipo">
+                                    <option value="masterCard"> MasterCard </option>
+                                    <option value="visa"> Visa </option>
+                                    <option value="american"> American Express </option>
+                                </select>
+                            </div>
+
+                            <div class="inputsPago">
+                                <h4>Número de tarjeta:</h4>
+                                <div class="inputsTarjeta">
+                                    <input type="text" maxlength="4" class="numTarjeta" placeholder="xxxx">
+                                    <p>-</p>
+                                    <input type="text" maxlength="4" class="numTarjeta" placeholder="xxxx">
+                                    <p>-</p>
+                                    <input type="text" maxlength="4" class="numTarjeta" placeholder="xxxx">
+                                    <p>-</p>
+                                    <input type="text" maxlength="4" class="numTarjeta" placeholder="xxxx">
+                                </div>
+                            </div>
+
+                            <div class="inputsPago">
+                                <h4>Nombre y Apellido:</h4>
+                                <input type="text" class="nombreTarjeta" placeholder="Igual a la tarjeta">
+                            </div>
+
+                            <div class="inputsPago">
+                                <h4> Teléfono: </h4>
+                                <input type="tel" class="telTarjeta" placeholder="ej-1546755401">
+                            </div>
+
+                            <div class="inputsPago">
+                                <h4> Email: </h4>
+                                <input type="email" class="emailTarjeta" placeholder="ej-myexample@gmail.com">
+                            </div>
+                    </div>
+                    <button type="submit" id="btnCompraFinal" class="finalizarCarritoBtn"> COMPRAR </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Productos -->
+        <h2 id="productosId" class="tituloProductos"> TODOS LOS PRODUCTOS </h2>
+        <div class="productosQueHay">
+            <div class="mangasDemostracion">
+                <p>Mangas</p>
+            </div>
+            <div class="figurasDemostracion">
+                <p>Figuras</p>
+            </div>
+            <div class="remerasDemostracion">
+                <p>Remeras</p>
+            </div>
+            <div class="merchandisingDemostracion">
+                <p>Merchandising</p>
+            </div>
+        </div>
+
+        <div class="filtros">
+            <form action="">
+                <select name="" id="ordenarProductos">
+                    <option id="optionInput" value="option">Ordenar</option>
+                    <option id="ordenarAZ" value="nombre-AZ"> Nombre (A-Z) </option>
+                    <option value="nombre-ZA"> Nombre (Z-A) </option>
+                    <option value="precio-ascendente"> Precio Menor a Mayor </option>
+                    <option value="precio-descendente"> Precio Mayor a Menor </option>
+                </select>
+
+                <input type="text" id="nombreFiltros" placeholder="Buscar...">
+
+                <select name="" id="tiposProductosFiltros">
+                    <option id="todos" value="todos">Todos los Productos</option>
+                    <option id="mangas" value="mangas">Mangas</option>
+                    <option id="figuras" value="figuras">Figuras</option>
+                    <option id="remeras" value="remeras">Remeras</option>
+                    <option id="merch" value="merch">Merchandising</option>
+                </select>
+
+                <input type="number" id="precioMinimo" placeholder="Precio Mínimo">
+                <input type="number" id="precioMaximo" placeholder="Precio Máximo">
+
+                <input class="limpiarFiltros" type="reset" value="Limpiar Filtros">
+            </form>
+        </div>
+
+        <section class="productosSection">
+            <!-- Acá se agrega con el append el array de productos -->
+        </section>
+
+        <section id="nosotrosId" class="nosotros">
+            <h2>NOSOTROS</h2>
+            <div class="nosotrosContainer">
+                <div class="nosotrosImage">
+                    <img src="https://i0.wp.com/elpalomitron.com/wp-content/uploads/2019/04/mercado-de-manga-de-Jap%C3%B3n-en-2018-destacada-el-palomitron.jpg?resize=1200%2C600&ssl=1"
+                        alt="Tienda">
+                </div>
+                <div>
+                    <div class="infoNosotros">
+                        <h3 class="logoEnNosotros"> <img id="logoNosotros" src="./imgs/logo-svg.png"
+                            alt="Logo de la página">
+                            <p class="marketLogo"><span class="nombreLogo">ANIME</span> MARKET</p>
+                        </h3>
+                        <p class="textoNosotros">
+                            Somos la tienda de anime y manga más reconocida de Argentina. Con nuestro equipo de
+                            vendedores expertos en esta pasión, te damos las mejores recomendaciones con los mejores
+                            precios. Amamos este mundo tanto como vos lo hacés y esperamos que cuentes con nosotros!
+                            Ahora con nueva sucursal en Puerto Madero!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="certificadoNosotros">
+                <div>
+                    <h3> Certificados y reconocidos por las mejores empresas </h3>
+                    <p>
+                        Estamos certificados y contamos con las mejores marcas del mercado, tanto nacional como
+                        internacionalmente. Gracias a ellos tenemos la mejor calidad de productos, desde figuras y
+                        mangas, hasta todo tipo de merch. Aprovecha nuestras cuotas sin interés para llenar esa
+                        estantería deseada de nuestros mejores productos.
+                    </p>
+                </div>
+                <div class="imagesCertificaciones">
+                    <div class="marcasProductosContainer">
+                        <div class="marcasProductos">
+                            <img src="./imgs/panini-svg.webp" alt="Logo Panini" class="marcasImgs">
+                            <img src="./imgs/ivrea-svg.png" alt="Logo Ivrea" class="marcasImgs">
+                        </div>
+                        <div class="marcasProductos">
+                            <img src="./imgs/banpresto_logo.svg" alt="Banpresto Logo" class="marcasImgs">
+                            <img src="./imgs/comiccon-svg.png" alt="Comic Con logo" class="marcasImgs">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contactoId">
+            <div class="contactoContainer">
+                <h2>Contactanos!</h2>
+                <div class="formularioGeneral">
+                    <div class="contactoInfo">
+                        <form action="">
+                            <p>
+                                <label>Nombre:</label>
+                                <input class="inputContacto" type="text" name="fullname">
+                            </p>
+                            <p>
+                                <label>Apellido:</label>
+                                <input class="inputContacto" type="text" name="surname">
+                            </p>
+                            <p>
+                                <label>Mail:</label>
+                                <input class="inputContacto" type="email" name="email">
+                            </p>
+                            <p>
+                                <label>Asunto:</label>
+                                <input class="inputContacto" type="text" name="asunto">
+                            </p>
+                            <p>
+                                <label>Motivo:</label>
+                                <textarea class="inputContacto" name="message" rows="3"></textarea>
+                            </p>
+                            <p>
+                            <div class="botonesContacto">
+                                <button class="enviarForm">
+                                    Enviar
+                                </button>
+                                <input class="limpiarFiltrosContacto" type="reset" value="Limpiar">
+                            </div>
+                            </p>
+                        </form>
+                    </div>
+                    <img src="./imgs/luffy-png.png" alt="Luffy One Piece" class="imgLuffy">
+                </div>
+            </div>
+        </section>
+
+        <div class="iconosSubida">
+            <div class="iconosSticky">
+                <div class="flechaSubida">
+                    <a href="#"><i class="bi bi-arrow-up-circle-fill"></i></a>
+                </div>
+                <div class="iconoWhatsapp">
+                    <a target="_blank" href="https://www.whatsapp.com/"><img src="./imgs/wsp-svg.svg"
+                            alt="whatsapp iconos"></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container__footer">
+            <div class="box__footer" id="contenedorLogoFooter">
+                <div class="logo" id="logoFooter">
+                    <img src="./imgs/logo-svg.png" alt="">
+                </div>
+                <div class="terms">
+                    <p>
+                    <p><span class="nombreLogo">ANIME</span> MARKET</p>
+
+                    </p>
+                </div>
+            </div>
+            <div class="navYpagos">
+                <div class="box__footer">
+                    <h2>Navegación</h2>
+                    <a href="#">Inicio</a>
+                    <a href="#productosId">Productos</a>
+                    <a href="#nosotrosId">Nosotros</a>
+                    <a href="#contactoId">Contacto</a>
+                </div>
+
+                <div class="box__footer">
+                    <h2 class="pagosTitle">Medios de Pago</h2>
+                    <div class="mediosPagoImgs">
+                        <img class="imgsPagos" src="./imgs/mercado-svg.png" alt="Mercado Pago">
+                        <img class="imgsPagos" src="./imgs/visa-svg.svg" alt="Visa">
+                        <img class="imgsPagos" src="./imgs/master-svg.png" alt="Mastercard">
+                        <img class="imgsPagos" src="./imgs/panini-svg2.png" alt="Paypal">
+                    </div>
+                </div>
+            </div>
+
+            <div class="box__footer">
+                <h2>Redes Sociales</h2>
+                <a href="https://www.facebook.com/?locale=es_LA" target="_blank"> <i class="bi bi-facebook"></i>
+                    Facebook</a>
+                <a href="https://twitter.com/?lang=es" target="_blank"><i class="bi bi-twitter-x"></i> Twitter</a>
+                <a href="https://es.linkedin.com/"><i class="bi bi-linkedin" target="_blank"></i> Linkedin</a>
+                <a href="https://www.instagram.com/"><i class="bi bi-instagram" target="_blank"></i>Instagram</a>
+            </div>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.642997248558!2d-58.3642587248127!3d-34.613187957997404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a334d795fef40d%3A0x3326a749c8e348f3!2sMartha%20Salotti%20474%2C%20C1107CMD%20CABA!5e0!3m2!1ses-419!2sar!4v1700783915411!5m2!1ses-419!2sar"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="box__copyright">
+            <hr>
+            <p>Todos los derechos reservados © 2023 <b>Anime Market</b></p>
+        </div>
+    </footer>
+
+    <!-- Script Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Script Toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!-- Script JS -->
+    <script src="./productos.js"></script>
+    <script src="./index.js"></script>
+
+    <!-- Script BS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
